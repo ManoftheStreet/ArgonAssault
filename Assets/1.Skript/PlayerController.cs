@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
         ProcessFiring();
     }
 
-    private void PorcessTranslation()
+    void PorcessTranslation()
     {
         xThrow = Input.GetAxis("Horizontal");
         yThrow = Input.GetAxis("Vertical");
@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
         transform.localPosition = new Vector3(clampedXPos, clampedYPos, transform.localPosition.z);
     }
 
-    private void ProcessRotation()
+    void ProcessRotation()
     {
         float pitchDueToPosition = transform.localPosition.y * positionPitchFactor;
         float pitchDueToControlThrow = yThrow * -controlPitchFactor;
@@ -61,7 +61,7 @@ public class PlayerController : MonoBehaviour
         transform.localRotation = Quaternion.Euler(pitch, yaw, roll);
     }
 
-    private void ProcessFiring()
+    void ProcessFiring()
     {
         if(Input.GetButton("Fire1"))
         {
